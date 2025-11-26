@@ -15,6 +15,18 @@ app.use(cors({
     origin : process.env.FRONTEND_URL,
     credentials : true
 }))
+app.get("/", (req, res) => {
+  res.status(200).send("Backend is alive");
+});
+const fetch = require("node-fetch");
+
+const BACKEND_URL = "https://backend-repo-carwash.onrender.com";
+
+setInterval(() => {
+  fetch(BACKEND_URL)
+    .then(() => console.log("Pinged to stay awake"))
+    .catch(err => console.error("Ping failed:", err));
+}, 1 * 60 * 1000); // every 5 minutes
 app.use(fileupload())
 app.use(express.json())
 app.use(cookieParser())
