@@ -18,7 +18,7 @@ const { getAvailableSlots } = require('../controller/bookingSlots')
 app.get("/", (req, res) => {
   res.status(200).send("Backend is alive");
 });
-import fetch from "node-fetch";
+const fetch = require("node-fetch");
 
 const BACKEND_URL = "https://backend-repo-carwash.onrender.com";
 
