@@ -15,6 +15,18 @@ const bookingAcceptRejectByDoctor = require('../controller/bookingAcceptReject')
 const {createShopProduct, getAllCar, getSingleCar} = require('../controller/shopCarController')
 const { getAvailableSlots } = require('../controller/bookingSlots')
 
+app.get("/", (req, res) => {
+  res.status(200).send("Backend is alive");
+});
+import fetch from "node-fetch";
+
+const BACKEND_URL = "https://backend-repo-carwash.onrender.com";
+
+setInterval(() => {
+  fetch(BACKEND_URL)
+    .then(() => console.log("Pinged to stay awake"))
+    .catch(err => console.error("Ping failed:", err));
+}, 5 * 60 * 1000); // every 5 minutes
 
 router.post("/signup",userSignUpController)
 router.post("/signin",userSignInController)
