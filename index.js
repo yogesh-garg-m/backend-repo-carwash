@@ -26,7 +26,7 @@ setInterval(() => {
   fetch(BACKEND_URL)
     .then(() => console.log("Pinged to stay awake"))
     .catch(err => console.error("Ping failed:", err));
-}, 1 * 60 * 1000); // every 5 minutes
+}, 10 * 60 * 1000); // every 5 minutes
 app.use(fileupload())
 app.use(express.json())
 app.use(cookieParser())
